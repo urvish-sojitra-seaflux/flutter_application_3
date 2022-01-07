@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_unnecessary_containers, avoid_print
-
 import 'package:flutter/material.dart';
 
 class NewTransaction extends StatelessWidget {
@@ -9,38 +7,46 @@ class NewTransaction extends StatelessWidget {
   final amountController = TextEditingController();
 
   NewTransaction(this.addTx, {Key? key}) : super(key: key);
+  void submitData() {
+    final enteredTitle = titleController.text;
+    final enteredAmount = double.parse(amountController.text);
+
+    if (enteredTitle.isEmpty || enteredAmount <= 0) {
+      return;
+    }
+
+    addTx(titleController.text, double.parse(amountController.text));
+  }
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            TextField(
-              decoration: const InputDecoration(labelText: 'Title'),
-              controller: titleController,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          TextField(
+            decoration: const InputDecoration(labelText: 'Title'),
+            controller: titleController,
+            onSubmitted: (_) => submitData,
+          ),
+          TextField(
+            decoration: const InputDecoration(labelText: 'Amount'),
+            keyboardType: TextInputType.number,
+            controller: amountController,
+            onSubmitted: (_) => submitData,
+          ),
+          ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.grey)),
+            onPressed: () {
+              addTx(titleController.text, double.parse(amountController.text));
+            },
+            child: const Text(
+              'Add Transaction',
             ),
-            TextField(
-              decoration: const InputDecoration(labelText: 'Amount'),
-              controller: amountController,
-            ),
-            ElevatedButton(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.amber)),
-              onPressed: () {
-                addTx(
-                    titleController.text, double.parse(amountController.text));
-              },
-              child: const Text(
-                'Add Transaction',
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
-
-  TextEditingController get newMethod => titleController;
 }
