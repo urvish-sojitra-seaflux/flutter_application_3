@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import './widgets/user_transaction.dart';
-import './models/transaction.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,11 +9,11 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
+//  final List<Transaction> transaction = [];
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Flutter App',
       home: MyHomePage(),
     );
@@ -22,8 +21,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  MyHomePage({Key? key}) : super(key: key);
-  final List<Transaction> transactions = [];
+  const MyHomePage({Key? key}) : super(key: key);
   // String titleInput;
   // String amoujntInput;
 
@@ -46,7 +44,7 @@ class MyHomePage extends StatelessWidget {
               elevation: 5,
             ),
           ),
-          UserTransaction()
+          const UserTransaction(),
         ],
       ),
     );

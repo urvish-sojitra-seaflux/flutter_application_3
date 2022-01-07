@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 class NewTransaction extends StatelessWidget {
-  final Function addTx;
+  final VoidCallback addTx;
 
   final titleController = TextEditingController();
   final amountController = TextEditingController();
@@ -29,7 +29,8 @@ class NewTransaction extends StatelessWidget {
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.amber)),
               onPressed: () {
-                addTx(titleController.text, double.parse(amountController.text));
+                addTx(
+                    titleController.text, double.parse(amountController.text));
               },
               child: const Text(
                 'Add Transaction',
@@ -40,4 +41,6 @@ class NewTransaction extends StatelessWidget {
       ),
     );
   }
+
+  TextEditingController get newMethod => titleController;
 }
