@@ -15,9 +15,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Flutter App',
-      home: MyHomePage(),
+    return MaterialApp(
+      title: 'Personal Expenses',
+      theme: ThemeData(
+        primarySwatch: Colors.amber,
+      ),
+      home: const MyHomePage(),
     );
   }
 }
@@ -67,7 +70,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Firsst App'),
+        // backgroundColor: Colors.amber,
+        title: const Text('Personal Expenses'),
         actions: <Widget>[
           IconButton(
             onPressed: () => startAddNewTransactions(context),

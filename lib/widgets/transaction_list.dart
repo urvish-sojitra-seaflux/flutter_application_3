@@ -22,7 +22,7 @@ class TransactionList extends StatelessWidget {
                       margin: const EdgeInsets.symmetric(
                           vertical: 10, horizontal: 15),
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black, width: 3),
+                        border: Border.all(color: Colors.amber, width: 3),
                       ),
                       padding: const EdgeInsets.all(10),
                       child: Text(
@@ -30,7 +30,7 @@ class TransactionList extends StatelessWidget {
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 14,
-                            color: Colors.purple),
+                            color: Colors.amber),
                       ),
                     ),
                     Column(

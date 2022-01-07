@@ -11,7 +11,6 @@ class NewTransaction extends StatefulWidget {
 
 class _NewTransactionState extends State<NewTransaction> {
   final titleController = TextEditingController();
-
   final amountController = TextEditingController();
 
   void submitData() {
@@ -45,7 +44,7 @@ class _NewTransactionState extends State<NewTransaction> {
           ),
           ElevatedButton(
             style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.grey)),
+                backgroundColor: MaterialStateProperty.all(Colors.redAccent)),
             onPressed: () {
               widget.addTx(
                   titleController.text, double.parse(amountController.text));
